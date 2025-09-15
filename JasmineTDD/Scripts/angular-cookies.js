@@ -99,6 +99,7 @@ angular.module('ngCookies', ['ng']).
         //update all cookies updated in $cookies
         for(name in cookies) {
           value = cookies[name];
+          console.log('value: ', value);
           if (!angular.isString(value)) {
             value = '' + value;
             cookies[name] = value;
@@ -113,7 +114,7 @@ angular.module('ngCookies', ['ng']).
         if (updated){
           updated = false;
           browserCookies = $browser.cookies();
-
+//  Check for repition of the for loop and refactor accodingly in next sprint
           for (name in cookies) {
             if (cookies[name] !== browserCookies[name]) {
               //delete or reset all cookies that the browser dropped from $cookies
